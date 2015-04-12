@@ -22,15 +22,15 @@ hhnames <- read.table("household_power_consumption.txt", header = TRUE,
                       sep = ";", nrows = 1, stringsAsFactors=FALSE)
 names(household) <- names(hhnames)
 
-# Convert Date and Time into POSIX... and add to data
-hh1 <- strptime(paste(household[,1], household[,2]), "%d/%m/%Y %H:%M:%S")
-hh <- cbind(household, hh1)
+# Date/Time conversion and adding it to the data
+Datetime <- strptime(paste(household[,1], household[,2]), "%d/%m/%Y %H:%M:%S")
+hh <- cbind(household, Datetime)
 
 ## Make Plot 2
 par(mfrow = c(1,1), cex = 0.8)
-plot(hh$hh1, hh$Global_active_power, pch=".", xlab="", 
+plot(hh$Datetime, hh$Global_active_power, pch=".", xlab="", 
      ylab="Global Active Power (kilowatts)")
-lines(hh$hh1, hh$Global_active_power, lwd=1)
+lines(hh$Datetime, hh$Global_active_power, lwd=1)
 
 dev.copy(png, file="plot2.png", width=480, height=480)
 dev.off()  #Copy to png file and close connection
