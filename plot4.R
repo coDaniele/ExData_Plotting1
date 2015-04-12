@@ -46,8 +46,9 @@ lines(hh$Datetime, hh$Sub_metering_1, lwd=1)
 lines(hh$Datetime, hh$Sub_metering_2, col="Red")
 lines(hh$Datetime, hh$Sub_metering_3, col="Blue")
 legend("topright", legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"),
-       col = c("Black", "Red", "Blue"), lwd = c(1,1,1), bty = "n", y.intersp=0.35, cex = 0.9, 
-       yjust=0.5, text.width = strwidth("Sub_metering_1  "), inset = c(0.02,-0.05))
+       col = c("Black", "Red", "Blue"), lwd = c(1,1,1), bty = "n", y.intersp=0.35, 
+       cex = 0.9, yjust=0.5, text.width = strwidth("Sub_metering_1 "), 
+       inset = c(0,-0.05))
 
 #subpart 4, bottomright
 plot(hh$Datetime, hh$Global_reactive_power, pch=".", xlab="datetime", 
